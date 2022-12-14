@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const postRouter = require("./router/postRouter");
 const userRouter = require("./router/userRouter");
 require("dotenv").config();
 
@@ -9,6 +10,7 @@ app.use(express.json());
 
 
 app.use('/api', userRouter);
+app.use('/api',postRouter)
 
 mongoose
   .connect(process.env.MONGO_DB, () => {
